@@ -3,10 +3,27 @@
     var nav = $("nav");
 
     $(document).on("scroll", onScroll);
-    $(window).on("resize", showMenuOnResize);
     $("a[href^='#']").on("click", scrollTo);
-    $(".mobile-menu").on("click", mobileMenu);
-    $("nav a").on("click", hideMenu);
+    $(window).on("resize", function() {
+        if (!menuIsOpened && $(window).width() > "830") {
+            showMenu();
+        }
+        else if (menuIsOpened && $(window).width() < "830") {
+            hideMenu();
+        }
+    });
+    $(".mobile-menu").on("click", function() {
+        if (!menuIsOpened) {
+            showMenu();
+        } else {
+            hideMenu();
+        }
+    });
+    $("nav a").on("click", function() {
+        if ($(window).width() <= "830") {
+            hideMenu();
+        }
+    });
 
     function onScroll(event) {
         var scrollPos = $(document).scrollTop();
@@ -49,14 +66,6 @@
         });
     }
 
-    function mobileMenu() {
-        if (!menuIsOpened) {
-            showMenu();
-        } else {
-            hideMenu();
-        }
-    }
-    
     function showMenu() {
         $("nav ul").css("display", "flex");
         menuIsOpened = true;
@@ -67,9 +76,4 @@
          menuIsOpened = false;
     }
     
-    function showMenuOnResize() {
-        if (!menuIsOpened && $(window).width() > "830") {
-            showMenu();
-        }
-    }
 })();

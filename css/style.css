@@ -416,6 +416,7 @@ section.order {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     position: relative;
     width: 70%;
     background-color: #fff;
@@ -977,6 +978,10 @@ footer img {
         left: 50%;
     }
     
+    .order .container {
+        padding-bottom: 115px;
+    }
+    
     .order-input {
         width: 50%;
         font-size: 12px;
@@ -1050,4 +1055,41 @@ footer img {
     footer .phone {
         font-size: 16px;
     } 
+}
+
+@media(max-width: 325px) { 
+    .title span:first-child {
+        letter-spacing: 6px;
+        font-size: 36px;
+    }
+    
+    .title span:last-child {
+        font-size: 48px;
+    }
+    
+    .journal .container {
+        width: 95%;
+    }
+    
+    footer {
+        flex-direction: column;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .copyrighting {
+        order: 3;
+    }
+    
+    .socials {
+        order: 2;
+    }
+    
+    .phone {
+        order: 1;
+    }
+    
+    footer img {
+        width: 25px;
+    }
 }
