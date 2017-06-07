@@ -1,4 +1,4 @@
-(function() {
+$(function() {
     var menuIsOpened = false;
     var nav = $("nav");
 
@@ -76,4 +76,4 @@
          menuIsOpened = false;
     }
     
-})();
+});
